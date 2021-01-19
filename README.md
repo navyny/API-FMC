@@ -7,25 +7,36 @@ With Token Based Authentication you obtain a token by providing your username an
 ![image-1](https://user-images.githubusercontent.com/16725668/105071594-a868ac80-5a39-11eb-8320-40e478cc8899.jpg)
 
 
+###How to get the token first using usernme & passowrd:
 
-
-How to get "X-auth-access-token" that will be added to header in all future requests:
-
-Example:
+```
 import requests
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+url="https://fwm-aln-us-1.nsnet.local/api/fmc_platform/v1/auth/generatetoken"
 
-url= https://url="https://fwm-aln-us-1.nsnet.local/api/fmc_platform/v1/info/serverversion"
 headers = {
-           'X-auth-access-token' : "2aacsdafjdlkjfdlskfdsolhfalksaldksalklsa",
+    'Content-Type' : "application/xml",
+    'Authorization' : "Basic YS1uYXZlZW4udmFsbGFiaGFuZW46U3RvaWNsaWZlIzE5"
+    }
+
+response = requests.request("POST", url, headers=headers, verify=False)
+
+print(response.headers['X-auth-access-token'])
+print(type(response.headers))
+
+```
+
+###USING THE X-auth-access-token from Above and using GET method to obtain Server version
+
+```
+url= "https://fwm-aln-us-1.nsnet.local/api/fmc_platform/v1/info/serverversion"
+headers = {
+           'X-auth-access-token' : response.headers['X-auth-access-token'],
            }
            
-response = requests.request("GET", url, headers=headers,verify=Flase)
+response = requests.request("GET", url, headers=headers, verify=False)
 
 print(response.text)
-
-
-How to get the token first using usernme & passowrd:
-
-curl -k -L -d '{"username":"root","password":"default"}' https://address.of.opengear/api/v1/sessions/
-curl -k -L -d '{"username":"root","password":"dxsfsdf"}' https://rm-wst-us-mgr.netscout.com/monitor/dashboard/api/v1/sessions/
+```
 

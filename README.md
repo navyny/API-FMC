@@ -17,7 +17,7 @@ url="https://fwm-aln-us-1.nsnet.local/api/fmc_platform/v1/auth/generatetoken"
 
 headers = {
     'Content-Type' : "application/xml",
-    'Authorization' : "Basic YS1uYXZlZW4udmFsbGFiaGFuZW46U3RvaWNsaWZlIzE5"
+    'Authorization' : "Basic YS1uYXZlZW4udmFsbGFiaGFuZW46U3RvaWNsaWZl5"   #use https://mixedanalytics.com/knowledge-base/api-connector-encode-credentials-to-base-64/
     }
 
 response = requests.request("POST", url, headers=headers, verify=False)

@@ -7,6 +7,9 @@ With Token Based Authentication you obtain a token by providing your username an
 ![image-1](https://user-images.githubusercontent.com/16725668/105071594-a868ac80-5a39-11eb-8320-40e478cc8899.jpg)
 
 
+### Make sure API is enabled on FMC
+![image2](https://user-images.githubusercontent.com/16725668/105108034-3c546b80-5a6e-11eb-9688-b2a4c5452b3a.jpg)
+
 ###How to get the token first using usernme & passowrd:
 
 ```
